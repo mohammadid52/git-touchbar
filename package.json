@@ -1,0 +1,125 @@
+{
+  "name": "git-touchbar",
+  "displayName": "git-touchbar",
+  "description": "This extension will help you to add your favourite git commands to your touchbar",
+  "version": "0.0.1",
+  "publisher": "Mohammad Dehgamwala",
+  "engines": {
+    "vscode": "^1.63.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:git-touchbar.git",
+    "onCommand:git-touchbar.closegit",
+    "onCommand:git-touchbar.gitcommit",
+    "onCommand:git-touchbar.gitpull",
+    "onCommand:git-touchbar.checkoutTo",
+    "onCommand:git-touchbar.stageAll",
+    "onCommand:git-touchbar.openProject"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "git-touchbar.git",
+        "title": "Git",
+        "icon": "./assets/git.png"
+      },
+      {
+        "command": "git-touchbar.gitpull",
+        "title": "⤵️"
+      },
+      {
+        "command": "git-touchbar.gitcommit",
+        "title": "📘"
+      },
+      {
+        "command": "git-touchbar.gitpush",
+        "title": "🚀"
+      },
+      {
+        "command": "git-touchbar.checkoutTo",
+        "title": "🎛"
+      },
+      {
+        "command": "git-touchbar.stageAll",
+        "title": "🌱"
+      },
+      {
+        "command": "git-touchbar.closegit",
+        "title": "⬅️"
+      },
+      {
+        "command": "git-touchbar.openProject",
+        "title": "📂"
+      }
+    ],
+    "menus": {
+      "touchBar": [
+        {
+          "command": "git-touchbar.git",
+          "group": "gittools",
+          "when": "!enableGit"
+        },
+        {
+          "command": "git-touchbar.gitcommit",
+          "group": "git-action",
+          "when": "enableGit "
+        },
+        {
+          "command": "git-touchbar.gitpull",
+          "group": "git-action",
+          "when": "enableGit "
+        },
+        {
+          "command": "git-touchbar.gitpush",
+          "group": "git-action",
+          "when": "enableGit "
+        },
+        {
+          "command": "git-touchbar.stageAll",
+          "group": "git-action-2",
+          "when": "enableGit "
+        },
+        {
+          "command": "git-touchbar.checkoutTo",
+          "group": "git-action-2",
+          "when": "enableGit "
+        },
+        {
+          "command": "git-touchbar.closegit",
+          "group": "git-action-1",
+          "when": "enableGit "
+        },
+        {
+          "command": "git-touchbar.openProject",
+          "group": "git-action-3",
+          "when": "enableGit"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.63.0",
+    "@types/glob": "^7.1.4",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "14.x",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "eslint": "^8.1.0",
+    "glob": "^7.1.7",
+    "mocha": "^9.1.3",
+    "typescript": "^4.4.4",
+    "@vscode/test-electron": "^1.6.2"
+  }
+}
