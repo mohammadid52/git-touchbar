@@ -2,6 +2,9 @@
 
 import * as vscode from "vscode";
 
+const showInfo = (infoMsg: string) =>
+  vscode.window.showInformationMessage(infoMsg);
+
 export function activate(context: vscode.ExtensionContext) {
   const { commands, window } = vscode;
 
@@ -14,21 +17,25 @@ export function activate(context: vscode.ExtensionContext) {
   //! Sync Branch
   const syncBranch = commands.registerCommand("git-touchbar.syncBranch", () => {
     commands.executeCommand("git.sync");
+    showInfo("Branch synced");
   });
 
   //! Git commit
   const commit = commands.registerCommand("git-touchbar.gitcommit", () => {
     commands.executeCommand("git.commit");
+    showInfo("Changes commited successfully");
   });
 
   //! Git push
   const push = commands.registerCommand("git-touchbar.gitpush", () => {
     commands.executeCommand("git.push");
+    showInfo("Changes pushed successfully");
   });
 
   //! Git pull
   const pull = commands.registerCommand("git-touchbar.gitpull", () => {
     commands.executeCommand("git.pull");
+    showInfo("Changes pulled successfully");
   });
 
   //! Closing git
@@ -43,6 +50,7 @@ export function activate(context: vscode.ExtensionContext) {
   //! stage all
   const stageAll = commands.registerCommand("git-touchbar.stageAll", () => {
     commands.executeCommand("git.stageAll");
+    showInfo("Changes Staged");
   });
 
   //! open project
@@ -55,6 +63,7 @@ export function activate(context: vscode.ExtensionContext) {
         prompt: "Git Touchbar",
         value: "3000",
       });
+      showInfo("Opening site");
       vscode.env.openExternal(vscode.Uri.parse(`http://localhost:${port}`));
       commands.executeCommand("setContext", "enableGit", false);
       commands.executeCommand("setContext", "enableExtras", false);
@@ -82,7 +91,8 @@ export function activate(context: vscode.ExtensionContext) {
       prompt: "Git Touchbar",
     });
     if (searchedQuery) {
-      window.showInformationMessage(`Searching '${searchedQuery}' on google`);
+      showInfo(`Searching '${searchedQuery}' on google`);
+
       setTimeout(() => {
         vscode.env.openExternal(
           vscode.Uri.parse(`https://www.google.com/search?q=${searchedQuery}`)
@@ -106,9 +116,8 @@ export function activate(context: vscode.ExtensionContext) {
       vscode.env.clipboard.writeText(
         `console.log('${selectedText} => 🚀 => ', ${selectedText})`
       );
-      vscode.window.showInformationMessage(
-        "Copied. Now paste it wherever you want"
-      );
+
+      showInfo("Copied. Now paste it wherever you want");
     }
   );
 
