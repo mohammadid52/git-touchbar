@@ -3,6 +3,14 @@
 I have created this extension for my personal use. But you can use it too. If you have touchbar then only install this.
 Things i wanted to add on my touchbar
 
+Images ->
+
+Let's see some screenshots first ->
+
+1.  ![alt first](https://raw.githubusercontent.com/mohammadid52/git-touchbar/master/assets/first-image.png)
+2.  ![alt second](https://raw.githubusercontent.com/mohammadid52/git-touchbar/master/assets/second-image.png)
+3.  ![alt third](https://raw.githubusercontent.com/mohammadid52/git-touchbar/master/assets/third-image.png)
+
 For git:
 
 1. Commit
