@@ -19,16 +19,16 @@ In Extras ->
 
 Note: I have added all commands as emojis. it looks cool on touchbar. so you have to get used to it at first.
 
-😇 -> Open git menu
-✍️ -> Commit changes
-🤝 -> Push changes
-🎃 -> Stage all changes
-🚗 -> Pull changes
-💼 -> Checkout to...
-❌ -> Close menu
-🤍 -> Show extras
-📂 -> Open site ()
-🔎 -> Search on google from vscode
-🪵 -> console.log selected text
+1. 😇 -> Open git menu
+2. ✍️ -> Commit changes
+3. 🤝 -> Push changes
+4. 🎃 -> Stage all changes
+5. 🚗 -> Pull changes
+6. 💼 -> Checkout to...
+7. ❌ -> Close menu
+8. 🤍 -> Show extras
+9. 📂 -> Open site
+10. 🔎 -> Search on google from vscode
+11. 🪵 -> console.log selected text
 
 **Enjoy!**
