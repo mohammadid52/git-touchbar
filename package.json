@@ -2,7 +2,7 @@
   "name": "git-touchbar",
   "displayName": "git-touchbar",
   "description": "This extension will help you to add your favourite git commands to your touchbar",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "MohammadDehgamwala",
   "author": "Mohammad Dehgamwala <mohammadidehgamwala5@gmail.com>",
   "engines": {
