@@ -7,7 +7,13 @@ export function activate(context: vscode.ExtensionContext) {
 
   //! Enable Git
   const git = commands.registerCommand("git-touchbar.git", () => {
+    commands.executeCommand("setContext", "enableExtras", false);
     commands.executeCommand("setContext", "enableGit", true);
+  });
+
+  //! Sync Branch
+  const syncBranch = commands.registerCommand("git-touchbar.syncBranch", () => {
+    commands.executeCommand("git.sync");
   });
 
   //! Git commit
@@ -118,7 +124,8 @@ export function activate(context: vscode.ExtensionContext) {
     showExtras,
     closeExtras,
     search,
-    logSelected
+    logSelected,
+    syncBranch
   );
 }
 

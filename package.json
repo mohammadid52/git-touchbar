@@ -45,7 +45,8 @@
     "onCommand:git-touchbar.showExtras",
     "onCommand:git-touchbar.search",
     "onCommand:git-touchbar.logSelected",
-    "onCommand:git-touchbar.closeExtras"
+    "onCommand:git-touchbar.closeExtras",
+    "onCommand:git-touchbar.syncBranch"
   ],
   "license": "MIT",
   "main": "./out/extension.js",
@@ -53,27 +54,31 @@
     "commands": [
       {
         "command": "git-touchbar.git",
-        "title": "😇"
+        "title": "Git"
+      },
+      {
+        "command": "git-touchbar.syncBranch",
+        "title": "Sync"
       },
       {
         "command": "git-touchbar.gitpull",
-        "title": "🚗"
+        "title": "Pull"
       },
       {
         "command": "git-touchbar.gitcommit",
-        "title": "✍️"
+        "title": "Commit"
       },
       {
         "command": "git-touchbar.gitpush",
-        "title": "🤝"
+        "title": "Push"
       },
       {
         "command": "git-touchbar.checkoutTo",
-        "title": "💼"
+        "title": "Checkout"
       },
       {
         "command": "git-touchbar.stageAll",
-        "title": "🎃"
+        "title": "Stage"
       },
       {
         "command": "git-touchbar.closegit",
@@ -81,19 +86,19 @@
       },
       {
         "command": "git-touchbar.openProject",
-        "title": "📂"
+        "title": "Site"
       },
       {
         "command": "git-touchbar.showExtras",
-        "title": "🤍"
+        "title": "Other"
       },
       {
         "command": "git-touchbar.search",
-        "title": "🔎"
+        "title": "Search"
       },
       {
         "command": "git-touchbar.logSelected",
-        "title": "🪵"
+        "title": "Log"
       },
       {
         "command": "git-touchbar.closeExtras",
@@ -104,62 +109,67 @@
       "touchBar": [
         {
           "command": "git-touchbar.git",
-          "group": "gittools",
+          "group": "grp1",
           "when": "!enableGit && gitOpenRepositoryCount >= 1"
         },
         {
+          "command": "git-touchbar.closeExtras",
+          "group": "grp2",
+          "when": "enableExtras"
+        },
+        {
+          "command": "git-touchbar.syncBranch",
+          "group": "grp3",
+          "when": "enableGit && !enableExtras"
+        },
+        {
           "command": "git-touchbar.gitcommit",
-          "group": "git-action-2",
+          "group": "grp3",
           "when": "enableGit && !enableExtras"
         },
         {
           "command": "git-touchbar.gitpull",
-          "group": "git-action-2",
+          "group": "grp3",
           "when": "enableGit && !enableExtras "
         },
         {
           "command": "git-touchbar.gitpush",
-          "group": "git-action-2",
+          "group": "grp3",
           "when": "enableGit && !enableExtras "
         },
         {
           "command": "git-touchbar.stageAll",
-          "group": "git-action-2",
+          "group": "grp3",
           "when": "enableGit && !enableExtras "
         },
         {
           "command": "git-touchbar.checkoutTo",
-          "group": "git-action-2",
+          "group": "grp3",
           "when": "enableGit && !enableExtras"
         },
         {
           "command": "git-touchbar.closegit",
-          "group": "git-action-1",
+          "group": "grp9",
           "when": "enableGit && !enableExtras"
         },
         {
           "command": "git-touchbar.openProject",
-          "group": "git-action-3",
-          "when": "enableGit && enableExtras"
+          "group": "grp10",
+          "when": "enableExtras"
         },
         {
           "command": "git-touchbar.showExtras",
-          "group": "git-action-3",
-          "when": "enableGit && !enableExtras"
-        },
-        {
-          "command": "git-touchbar.closeExtras",
-          "group": "git-action-4",
-          "when": "enableGit && enableExtras"
+          "group": "grp11",
+          "when": "!enableExtras"
         },
         {
           "command": "git-touchbar.search",
-          "group": "git-action-3",
-          "when": "enableGit && enableExtras"
+          "group": "grp10",
+          "when": "enableExtras"
         },
         {
           "command": "git-touchbar.logSelected",
-          "group": "git-action-5",
+          "group": "grp13",
           "when": "editorHasSelection"
         }
       ]
