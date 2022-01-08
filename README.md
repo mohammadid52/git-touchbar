@@ -3,16 +3,16 @@
 I have created this extension for my personal use. But you can use it too. If you have touchbar then only install this.
 Things i wanted to add on my touchbar
 
-*You can add your own icons with some basic vscode extensions api knowledge... 
+\*You can add your own icons with some basic vscode extensions api knowledge...
 All emojis are my personal preference. feel free to fork this repo and make your own .
 
 Images ->
 
 Let's see some screenshots first ->
 
-1.  ![alt first](https://raw.githubusercontent.com/mohammadid52/git-touchbar/master/assets/first-image.png)
-2.  ![alt second](https://raw.githubusercontent.com/mohammadid52/git-touchbar/master/assets/second-image.png)
-3.  ![alt third](https://raw.githubusercontent.com/mohammadid52/git-touchbar/master/assets/third-image.png)
+1.  ![Touchbar ScreenShot](/assets/first-image.png)
+2.  ![Touchbar ScreenShot](/assets/second-image.png)
+3.  ![Touchbar ScreenShot](/assets/third-image.png)
 
 For git:
 
