@@ -3,12 +3,32 @@
   "displayName": "git-touchbar",
   "description": "This extension will help you to add your favourite git commands to your touchbar",
   "version": "0.0.1",
-  "publisher": "Mohammad Dehgamwala",
+  "publisher": "MohammadDehgamwala",
+  "author": "Mohammad Dehgamwala <mohammadidehgamwala5@gmail.com>",
   "engines": {
     "vscode": "^1.63.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohammadid52/git-touchbar.git"
+  },
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "macbook pro",
+    "touchbar",
+    "shortcuts",
+    "vscode",
+    "visual studio code",
+    "macbook",
+    "git",
+    "git shortcuts",
+    "git touchbar",
+    "git touchbar extension",
+    "vscode git touchbar",
+    "developers",
+    "touch bar"
   ],
   "activationEvents": [
     "onCommand:git-touchbar.git",
@@ -17,43 +37,64 @@
     "onCommand:git-touchbar.gitpull",
     "onCommand:git-touchbar.checkoutTo",
     "onCommand:git-touchbar.stageAll",
-    "onCommand:git-touchbar.openProject"
+    "onCommand:git-touchbar.gitpush",
+    "onCommand:git-touchbar.openProject",
+    "onCommand:git-touchbar.showExtras",
+    "onCommand:git-touchbar.search",
+    "onCommand:git-touchbar.logSelected",
+    "onCommand:git-touchbar.closeExtras"
   ],
+  "license": "MIT",
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "git-touchbar.git",
-        "title": "Git",
-        "icon": "./assets/git.png"
+        "title": "😇"
       },
       {
         "command": "git-touchbar.gitpull",
-        "title": "⤵️"
+        "title": "🚗"
       },
       {
         "command": "git-touchbar.gitcommit",
-        "title": "📘"
+        "title": "✍️"
       },
       {
         "command": "git-touchbar.gitpush",
-        "title": "🚀"
+        "title": "🤝"
       },
       {
         "command": "git-touchbar.checkoutTo",
-        "title": "🎛"
+        "title": "💼"
       },
       {
         "command": "git-touchbar.stageAll",
-        "title": "🌱"
+        "title": "🎃"
       },
       {
         "command": "git-touchbar.closegit",
-        "title": "⬅️"
+        "title": "❌"
       },
       {
         "command": "git-touchbar.openProject",
         "title": "📂"
+      },
+      {
+        "command": "git-touchbar.showExtras",
+        "title": "🤍"
+      },
+      {
+        "command": "git-touchbar.search",
+        "title": "🔎"
+      },
+      {
+        "command": "git-touchbar.logSelected",
+        "title": "🪵"
+      },
+      {
+        "command": "git-touchbar.closeExtras",
+        "title": "❌"
       }
     ],
     "menus": {
@@ -61,42 +102,62 @@
         {
           "command": "git-touchbar.git",
           "group": "gittools",
-          "when": "!enableGit"
+          "when": "!enableGit && gitOpenRepositoryCount >= 1"
         },
         {
           "command": "git-touchbar.gitcommit",
-          "group": "git-action",
-          "when": "enableGit "
+          "group": "git-action-2",
+          "when": "enableGit && !enableExtras"
         },
         {
           "command": "git-touchbar.gitpull",
-          "group": "git-action",
-          "when": "enableGit "
+          "group": "git-action-2",
+          "when": "enableGit && !enableExtras "
         },
         {
           "command": "git-touchbar.gitpush",
-          "group": "git-action",
-          "when": "enableGit "
+          "group": "git-action-2",
+          "when": "enableGit && !enableExtras "
         },
         {
           "command": "git-touchbar.stageAll",
           "group": "git-action-2",
-          "when": "enableGit "
+          "when": "enableGit && !enableExtras "
         },
         {
           "command": "git-touchbar.checkoutTo",
           "group": "git-action-2",
-          "when": "enableGit "
+          "when": "enableGit && !enableExtras"
         },
         {
           "command": "git-touchbar.closegit",
           "group": "git-action-1",
-          "when": "enableGit "
+          "when": "enableGit && !enableExtras"
         },
         {
           "command": "git-touchbar.openProject",
           "group": "git-action-3",
-          "when": "enableGit"
+          "when": "enableGit && enableExtras"
+        },
+        {
+          "command": "git-touchbar.showExtras",
+          "group": "git-action-3",
+          "when": "enableGit && !enableExtras"
+        },
+        {
+          "command": "git-touchbar.closeExtras",
+          "group": "git-action-4",
+          "when": "enableGit && enableExtras"
+        },
+        {
+          "command": "git-touchbar.search",
+          "group": "git-action-3",
+          "when": "enableGit && enableExtras"
+        },
+        {
+          "command": "git-touchbar.logSelected",
+          "group": "git-action-5",
+          "when": "editorHasSelection"
         }
       ]
     }
@@ -109,6 +170,7 @@
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
   },
+  "icon": "logo.png",
   "devDependencies": {
     "@types/vscode": "^1.63.0",
     "@types/glob": "^7.1.4",
