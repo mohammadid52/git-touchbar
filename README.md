@@ -3,6 +3,9 @@
 I have created this extension for my personal use. But you can use it too. If you have touchbar then only install this.
 Things i wanted to add on my touchbar
 
+*You can add your own icons with some basic vscode extensions api knowledge... 
+All emojis are my personal preference. feel free to fork this repo and make your own .
+
 Images ->
 
 Let's see some screenshots first ->
