@@ -5,13 +5,27 @@ import * as vscode from "vscode";
 const showInfo = (infoMsg: string) =>
   vscode.window.showInformationMessage(infoMsg);
 
+const MESSAGE = "Hello Mohammad 😀";
+
 export function activate(context: vscode.ExtensionContext) {
   const { commands, window } = vscode;
 
+  const closeGitMenu = () =>
+    commands.executeCommand("setContext", "enableGit", false);
+
+  const closeExtrasMenu = () =>
+    commands.executeCommand("setContext", "enableExtras", false);
+
+  const openGit = () =>
+    commands.executeCommand("setContext", "enableGit", true);
+
+  const openExtras = () =>
+    commands.executeCommand("setContext", "enableExtras", true);
+
   //! Enable Git
   const git = commands.registerCommand("git-touchbar.git", () => {
-    commands.executeCommand("setContext", "enableExtras", false);
-    commands.executeCommand("setContext", "enableGit", true);
+    closeGitMenu();
+    openGit();
   });
 
   //! Sync Branch
@@ -40,7 +54,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   //! Closing git
   const closeGit = commands.registerCommand("git-touchbar.closegit", () => {
-    commands.executeCommand("setContext", "enableGit", false);
+    closeGitMenu();
   });
 
   //! Checkout
@@ -65,21 +79,31 @@ export function activate(context: vscode.ExtensionContext) {
       });
       showInfo("Opening site");
       vscode.env.openExternal(vscode.Uri.parse(`http://localhost:${port}`));
-      commands.executeCommand("setContext", "enableGit", false);
-      commands.executeCommand("setContext", "enableExtras", false);
+      closeGitMenu();
+      closeExtrasMenu();
+    }
+  );
+
+  //! show message
+  const showMessage = commands.registerCommand(
+    "git-touchbar.showMessage",
+    () => {
+      showInfo(MESSAGE);
     }
   );
 
   //! Show Extras
   const showExtras = commands.registerCommand("git-touchbar.showExtras", () => {
-    commands.executeCommand("setContext", "enableExtras", true);
+    openExtras();
+
+    closeGitMenu();
   });
 
   //! Close Extras
   const closeExtras = commands.registerCommand(
     "git-touchbar.closeExtras",
     () => {
-      commands.executeCommand("setContext", "enableExtras", false);
+      closeExtrasMenu();
     }
   );
 
@@ -134,7 +158,8 @@ export function activate(context: vscode.ExtensionContext) {
     closeExtras,
     search,
     logSelected,
-    syncBranch
+    syncBranch,
+    showMessage
   );
 }
 

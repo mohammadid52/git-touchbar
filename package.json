@@ -2,7 +2,7 @@
   "name": "git-touchbar",
   "displayName": "git-touchbar",
   "description": "This extension will help you to add your favourite git commands to your touchbar",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "publisher": "MohammadDehgamwala",
   "author": "Mohammad Dehgamwala <mohammadidehgamwala5@gmail.com>",
   "engines": {
@@ -46,7 +46,8 @@
     "onCommand:git-touchbar.search",
     "onCommand:git-touchbar.logSelected",
     "onCommand:git-touchbar.closeExtras",
-    "onCommand:git-touchbar.syncBranch"
+    "onCommand:git-touchbar.syncBranch",
+    "onCommand:git-touchbar.showMessage"
   ],
   "license": "MIT",
   "main": "./out/extension.js",
@@ -103,6 +104,10 @@
       {
         "command": "git-touchbar.closeExtras",
         "title": "❌"
+      },
+      {
+        "command": "git-touchbar.showMessage",
+        "title": "Hello Mohammad 😀"
       }
     ],
     "menus": {
@@ -111,6 +116,10 @@
           "command": "git-touchbar.git",
           "group": "grp1",
           "when": "!enableGit && gitOpenRepositoryCount >= 1"
+        },
+        {
+          "command": "git-touchbar.showMessage",
+          "group": "grp14"
         },
         {
           "command": "git-touchbar.closeExtras",
